@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import express from 'express';
 import { errorHandler } from './middlewares/errorHandler.js';
 import { origin, port } from './utils/commandParser.js';
