@@ -25,7 +25,6 @@ export function proxyMiddleWare(origin: string) {
       const response = await axios.get(target, {
         headers: { "Content-Type": "application/json" },
       });
-      console.log("response", response);
       const { data } = response;
 
       if (data) {
