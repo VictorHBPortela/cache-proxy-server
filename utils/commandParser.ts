@@ -1,5 +1,8 @@
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
+import { Cache } from "./cache.js";
+
+const cache = new Cache();
 
 const argv = yargs(hideBin(process.argv))
   .option("port", {
@@ -12,8 +15,18 @@ const argv = yargs(hideBin(process.argv))
     alias: "o",
     type: "string",
     description: "Specify the origin",
-    default: "development",
+    default: "",
   })
+  .command(
+    "clear-cache",
+    "Clear the cache",
+    {
+      key: { type: "string", requiresArg: false },
+    },
+    () => {
+      cache.clearCache();
+    }
+  )
   .parseSync();
 
 const { port, origin } = argv;
