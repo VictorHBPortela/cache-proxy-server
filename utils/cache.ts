@@ -1,24 +1,24 @@
-import { createClient, type RedisClientType } from "redis";
+import { createClient, type RedisClientType } from 'redis';
 
 export class Cache {
   public client: RedisClientType;
 
   constructor() {
     this.client = createClient();
-    this.client.on("error", (err) => console.error("Redis Client Error", err));
+    this.client.on('error', (err) => console.error('Redis Client Error', err));
   }
 
   public async connect(): Promise<void> {
     if (!this.client.isOpen) {
       await this.client.connect();
-      console.log("Connected to Redis");
+      console.log('Connected to Redis');
     }
   }
 
   public async disconnect(): Promise<void> {
     if (this.client.isOpen) {
       await this.client.quit();
-      console.log("Disconnected from Redis");
+      console.log('Disconnected from Redis');
     }
   }
 
@@ -41,7 +41,7 @@ export class Cache {
   public async clearCache(): Promise<void> {
     await this.connect();
     await this.client.flushAll();
-    console.log("Cache was cleared");
+    console.log('Cache was cleared');
     await this.client.quit();
   }
 }
