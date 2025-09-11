@@ -2,6 +2,10 @@
 
 A caching proxy server built with Node.js, Express, and Redis that provides caching capabilities for HTTP requests.
 
+Project for studying purposes only.
+
+Inspiration from: https://roadmap.sh/projects/caching-server
+
 ## Features
 
 - HTTP proxy with Redis caching
