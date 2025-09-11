@@ -1,7 +1,7 @@
 {
   "name": "cache-proxy-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "A caching proxy server built with Node.js, Express, and Redis",
   "main": "index.js",
   "type": "module",
   "bin": {
@@ -11,10 +11,21 @@
     "dev": "tsx watch index.ts",
     "build": "npm run lint && tsc",
     "start": "node dist/index.js",
+    "link": "npm run build && npm link",
+    "unlink": "npm unlink -g cache-proxy-server",
+    "serve": "npm run build && node dist/index.js",
+    "proxy": "npm run build && node dist/index.js",
     "lint": "eslint . --ext .ts,.js",
     "lint:fix": "eslint . --ext .ts,.js --fix"
   },
-  "keywords": [],
+  "keywords": [
+    "proxy",
+    "cache",
+    "redis",
+    "express",
+    "cli",
+    "http"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
